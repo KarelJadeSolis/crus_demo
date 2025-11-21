@@ -30,13 +30,16 @@ Partial Class Form1
         Me.TextBoxEmail = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ButtonInsert = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ButtonRead = New System.Windows.Forms.Button()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ButtonConnect
         '
-        Me.ButtonConnect.Location = New System.Drawing.Point(12, 12)
+        Me.ButtonConnect.Location = New System.Drawing.Point(-2, -1)
         Me.ButtonConnect.Name = "ButtonConnect"
-        Me.ButtonConnect.Size = New System.Drawing.Size(138, 124)
+        Me.ButtonConnect.Size = New System.Drawing.Size(192, 124)
         Me.ButtonConnect.TabIndex = 0
         Me.ButtonConnect.Text = "Connect MySQL"
         Me.ButtonConnect.UseVisualStyleBackColor = True
@@ -52,6 +55,7 @@ Partial Class Form1
         '
         'TextBoxName
         '
+        Me.TextBoxName.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.TextBoxName.Location = New System.Drawing.Point(65, 143)
         Me.TextBoxName.Name = "TextBoxName"
         Me.TextBoxName.Size = New System.Drawing.Size(100, 20)
@@ -59,6 +63,7 @@ Partial Class Form1
         '
         'TextBoxAge
         '
+        Me.TextBoxAge.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.TextBoxAge.Location = New System.Drawing.Point(65, 183)
         Me.TextBoxAge.Name = "TextBoxAge"
         Me.TextBoxAge.Size = New System.Drawing.Size(100, 20)
@@ -75,6 +80,7 @@ Partial Class Form1
         '
         'TextBoxEmail
         '
+        Me.TextBoxEmail.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.TextBoxEmail.Location = New System.Drawing.Point(65, 215)
         Me.TextBoxEmail.Name = "TextBoxEmail"
         Me.TextBoxEmail.Size = New System.Drawing.Size(100, 20)
@@ -91,18 +97,37 @@ Partial Class Form1
         '
         'ButtonInsert
         '
-        Me.ButtonInsert.Location = New System.Drawing.Point(24, 252)
+        Me.ButtonInsert.Location = New System.Drawing.Point(-2, 252)
         Me.ButtonInsert.Name = "ButtonInsert"
-        Me.ButtonInsert.Size = New System.Drawing.Size(141, 23)
+        Me.ButtonInsert.Size = New System.Drawing.Size(192, 33)
         Me.ButtonInsert.TabIndex = 7
         Me.ButtonInsert.Text = "CREATE (Insert Data)"
         Me.ButtonInsert.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(196, -1)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(437, 318)
+        Me.DataGridView1.TabIndex = 8
+        '
+        'ButtonRead
+        '
+        Me.ButtonRead.Location = New System.Drawing.Point(-2, 282)
+        Me.ButtonRead.Name = "ButtonRead"
+        Me.ButtonRead.Size = New System.Drawing.Size(192, 35)
+        Me.ButtonRead.TabIndex = 9
+        Me.ButtonRead.Text = "READ (Retrieve Data)"
+        Me.ButtonRead.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(622, 317)
+        Me.Controls.Add(Me.ButtonRead)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ButtonInsert)
         Me.Controls.Add(Me.TextBoxEmail)
         Me.Controls.Add(Me.Label3)
@@ -113,6 +138,7 @@ Partial Class Form1
         Me.Controls.Add(Me.ButtonConnect)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -126,4 +152,6 @@ Partial Class Form1
     Friend WithEvents TextBoxEmail As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents ButtonInsert As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents ButtonRead As Button
 End Class

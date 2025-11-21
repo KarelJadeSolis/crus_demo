@@ -21,13 +21,28 @@ Public Class Form1
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
-                Using cmd As New MySqlCommand(query, conn)
+                Using cmd As New MySqlCommand(query, conn) 'may gustong ilagay
                     cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
                     cmd.Parameters.AddWithValue("@age", CInt(TextBoxAge.Text))
                     cmd.Parameters.AddWithValue("@email", TextBoxEmail.Text)
                     cmd.ExecuteNonQuery()
                     MsgBox("Successfully")
                 End Using
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ButtonRead_Click(sender As Object, e As EventArgs) Handles ButtonRead.Click
+        Dim query As String = "SELECT * FROM crud_demo_db.students_tbl;"
+        Try
+            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
+                Dim adapter As New MySqlDataAdapter(query, conn) 'may gustong kunin
+                Dim table As New DataTable() 'table object
+                adapter.Fill(table) 'from adapter to table object
+                DataGridView1.DataSource = table 'display to DataGridView
+
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
