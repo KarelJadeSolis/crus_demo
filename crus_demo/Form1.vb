@@ -103,4 +103,8 @@ Public Class Form1
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub TextBoxAge_TextChanged(sender As Object, e As EventArgs) Handles TextBoxAge.TextChanged
+
+    End Sub
 End Class
