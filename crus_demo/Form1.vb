@@ -36,22 +36,26 @@ Public Class Form1
     End Sub
 
     Private Sub ButtonRead_Click(sender As Object, e As EventArgs) Handles ButtonRead.Click
-        Dim query As String = "SELECT name, age, email FROM crud_demo_db.students_tbl;"
+        Dim query As String = "SELECT * FROM crud_demo_db.students_tbl;"
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 Dim adapter As New MySqlDataAdapter(query, conn) 'may gustong kunin
                 Dim table As New DataTable() 'table object
                 adapter.Fill(table) 'from adapter to table object
                 DataGridView1.DataSource = table 'display to DataGridView
-
+                DataGridView1.Columns("id").Visible = False
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
 
+
+
+
+
     Private Sub ButtonUpdate_Click(sender As Object, e As EventArgs) Handles ButtonUpdate.Click
-        Dim query As String = "UPDATE students_tbl SET name = @name, age = @age, email = @email WHERE name = nameToSearch"
+        Dim query As String = "UPDATE students_tbl SET name = @name, age = @age, email = @email WHERE name = @nameToSearch"
         Try
             Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
@@ -105,6 +109,6 @@ Public Class Form1
     End Sub
 
     Private Sub TextBoxAge_TextChanged(sender As Object, e As EventArgs) Handles TextBoxAge.TextChanged
-
+        .
     End Sub
 End Class
